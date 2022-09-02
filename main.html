@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/sitedata/main.css">
+    <script src="/sitedata/main.js"></script>
+  </head>
+  <body>
+    <div id="blur-section">
+      <div class="top-section">
+        <img class="logo" src="/sitedata/logo.png" onclick="parent.location='/'">
+        <div class="top-path">
+
+          <!---->/<span class="folder" onclick="parent.location='LINK'">PATH</span><!---->
+        </div>
+      </div>
+      <br>
+      <div class="contents">
+<!---->
+        <div onclick="clicked(this);" class="box">
+          <div id="info" class="info">
+            <div class="title">DISPLAY</div>
+
+            <div class="details">
+              File Size: FILE_SIZE<br>
+              Date uploaded: FILE_UPLOADED<br>
+              Last downloaded: FILE_DOWNLOADED<br>
+            </div>
+            <div onclick="toggle(this)" link="FILE_LINK" class="view-button">View</div>
+            <a onclick="return confirm('Are you sure you want to delete FILENAME');" style="text-decoration:none;" href="DEL_LINK">
+              <div class="delete-button">Delete</div>
+            </a>
+            <a style="text-decoration:none;" href="FILE_LINK">
+              <div class="download-button">Download</div>
+            </a>
+          </div>
+          <img class="icon" src="/sitedata/file.png">
+          SHORT_FILENAME
+          <input name="checkboxes" class="selector" value="FILENAME" type=checkbox>
+        </div>
+<!---->
+        <a style="text-decoration:none;" href="FOLDER_LINK">
+          <div class="box">
+            <img class="icon" src="/sitedata/folder.png">
+            FOLDERNAME
+          </div>
+        </a>
+<!---->
+      </div>
+      <br><br><br>
+      <input id="in" onchange="browsed()" type=file style="display:none;" multiple>
+      <div id="dropzone" onclick="handleClick()" ondragleave="dragleaveHandler(event)" ondragover="dragoverHandler(event)" ondrop="dropHandler(event)" class="dropzone">
+        <div class="upload-content">
+          <img src="/sitedata/download.png" style="height:30px;width:30px;">
+          <br>
+          <span id="msg"><b>Drag here</b> or click to browse</span><br><br>
+        </div>
+      </div>
+<!---->
+      <div class="button-container">
+        <div id="down" onclick="download()" class="bottom-buttons-disabled">Download Selected</div>
+        <div id="del" onclick="remove()" class="bottom-buttons-disabled">Delete Selected</div>
+        <div class="bottom-buttons-disabled">Delete Folder</div>
+      </div>
+<!---->
+      <div class="button-container">
+        <div id="down" onclick="download()" class="bottom-buttons-disabled">Download Selected</div>
+        <div id="del" onclick="remove()" class="bottom-buttons-disabled">Delete Selected</div>
+        <a onclick="return confirm('Are you sure you want to delete this folder?');" style="text-decoration:none;" href="REMOVE_PATH">
+          <div class="bottom-buttons-red">Delete Folder</div>
+        </a>
+      </div>
+<!---->
+      <br><br>
+      <form method=POST>
+        <input name="folder" placeholder="New Folder.." class="new-folder-input" onkeypress="return event.charCode != 32" type=text>
+      </form>
+    </div>
+    <div id="focused" class="focused">
+      <div class="close" onclick="toggle()"><b>CLOSE</b></div>
+      <div id="image" class="img-container"></div>
+    </div>
+  </body>
+</html>
+<!--
+text #7f7f7f
+box #191922
+back #111117
+-->
